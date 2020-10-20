@@ -1,0 +1,114 @@
+*{
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    display: inline-block;
+}
+
+ul, il {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.menu a + a{
+    padding-left: 10px;
+}
+
+.menu li{
+    display: inline-block;
+}
+
+.menu li + li{
+    padding-left: 10px;
+}
+
+.header{
+    padding: 0;
+}
+
+body {
+    background-image: url("reproductive-health-supplies-coalition-bymICwLq-E4-unsplash.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+}
+
+.row{
+    margin-right: -70px;
+    margin-left: -70px;
+}
+
+.col-lg-3, .col-md-4, .col-sm-6, .col-xs-12{
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+    position: relative;
+    min-height: 1px;
+}
+
+.car-item{
+    margin-bottom: 20px;
+}
+
+.card-body{
+    text-align: center;
+    padding: 10px;
+}
+
+.card-body h3{
+    position: relative;
+    top: 7px;
+    font-size: 13px;
+    float: none;
+    text-align: center;
+    color: #242429;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 5px;
+}
+
+h3{
+    font-family: inherit;
+    line-height: 1.25;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.card-body h3 {
+    font-size: 24px;
+}
+
+.card-body p{
+    font-size: 13px;
+    color: #242429;
+}
+
+.card-img-top{
+    height: 180px;
+    background-position: 50%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+.col-md-1 {
+    margin: 10px;
+    padding-right: 100px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+    position: relative;
+    min-height: 1px;
+}
