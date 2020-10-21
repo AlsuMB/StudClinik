@@ -5,4 +5,33 @@ public class Article {
     private String text;
     private String title;
     private String img;
+
+    public Article(Integer id, String text, String title, String img) {
+        this.id = id;
+        this.text = text;
+        this.title = title;
+        this.img = img;
+    }
+
+    public Article(String text, String title, String img) {
+        this.text = text;
+        this.title = title;
+        this.img = img;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getImg() {
+        return img;
+    }
 }

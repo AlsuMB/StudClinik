@@ -1,4 +1,4 @@
-package sevlet;
+package ru.kpfu.sem1.studclinic.sevlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
