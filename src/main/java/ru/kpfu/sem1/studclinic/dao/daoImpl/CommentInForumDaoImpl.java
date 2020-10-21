@@ -73,7 +73,7 @@ public class CommentInForumDaoImpl implements Dao<AnswerInForum> {
 
     @Override
     public void save(AnswerInForum answerInForum) {
-        String sql = "INSERT INTO Comments_to_articles(article_id, user_id, doctor_id, text) VALUES (?, ?, ?, ?);";
+        String sql = "INSERT INTO comments_in_forum(article_id, user_id, doctor_id, text) VALUES (?, ?, ?, ?);";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             if (answerInForum.getUser().getStatus() == Status.DOCTOR) {
