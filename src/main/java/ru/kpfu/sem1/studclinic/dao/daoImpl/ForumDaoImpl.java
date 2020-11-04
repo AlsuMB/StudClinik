@@ -63,4 +63,25 @@ public class ForumDaoImpl implements Dao<Forum> {
             e.printStackTrace();
         }
     }
+
+    public List<Forum> getAll(int page, int pageSize) {
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM Forums limit" + pageSize + " OFFSET " + (page - 1) * pageSize;
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            List<Forum> forums = new ArrayList<>();
+            while (resultSet.next()) {
+                forums.add(new Forum(
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("text"),
+                        resultSet.getString("path_of_img")));
+            }
+            return forums;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

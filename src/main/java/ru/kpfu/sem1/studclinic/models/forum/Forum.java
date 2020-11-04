@@ -34,4 +34,14 @@ public class Forum {
     public String getImg() {
         return img;
     }
+
+    @Override
+    public String toString() {
+        return "Forum{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", title='" + title + '\'' +
+                ", img='" + img + '\'' +
+                '}';
+    }
 }

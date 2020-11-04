@@ -15,15 +15,17 @@ public class DragDaoImpl implements Dao<Drag> {
     public Drag get(int id) {
         try {
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM Drags WHERE id = " + id;
+            String sql = "SELECT * FROM Drags WHERE id = \'" + id + "\';";
             ResultSet resultSet = statement.executeQuery(sql);
-            return new Drag(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name"),
-                    resultSet.getString("mode_of_application"),
-                    resultSet.getString("other"),
-                    resultSet.getString("path_of_img"),
-                    findListOfIllId(id));
+            while (resultSet.next()) {
+                return new Drag(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("mode_of_application"),
+                        resultSet.getString("other"),
+                        resultSet.getString("path_of_img"),
+                        findListOfIllId(id));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -12,8 +12,8 @@ public class Doctor extends User {
     private Integer departmentID;
     private String img;
 
-    public Doctor(Integer id, String name, String login, String password, Integer medCard, String img, String statusOfDoctor, Integer departmentID) throws NoneOfDoctorException {
-        super(id, name, login, password, "doctor", medCard, img);
+    public Doctor(Integer id, String name, String login, String password, String img, String statusOfDoctor, Integer departmentID) throws NoneOfDoctorException {
+        super(id, name, login, password, "doctor", img);
         this.id = id;
         this.name = name;
         this.login = login;
@@ -24,8 +24,8 @@ public class Doctor extends User {
         this.img = img;
     }
 
-    public Doctor( String name, String login, String password, Integer medCard, String img, String statusOfDoctor, Integer departmentID) throws NoneOfDoctorException {
-        super(name, login, password, "doctor", medCard, img);
+    public Doctor( String name, String login, String password, String img, String statusOfDoctor, Integer departmentID) throws NoneOfDoctorException {
+        super(name, login, password, "doctor", img);
         this.name = name;
         this.login = login;
         this.password = password;

@@ -24,7 +24,6 @@ public class DoctorDaoImpl implements Dao<Doctor> {
                     resultSet.getString("name"),
                     resultSet.getString("login"),
                     resultSet.getString("password"),
-                    null,
                     resultSet.getString("path_of_img"),
                     resultSet.getString("status_of_doctor"),
                     resultSet.getInt("department_id"));
@@ -47,7 +46,6 @@ public class DoctorDaoImpl implements Dao<Doctor> {
                         resultSet.getString("name"),
                         resultSet.getString("login"),
                         resultSet.getString("password"),
-                        null,
                         resultSet.getString("path_of_img"),
                         resultSet.getString("status_of_doctor"),
                         resultSet.getInt("department_id")));

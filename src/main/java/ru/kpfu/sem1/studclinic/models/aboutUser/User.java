@@ -8,10 +8,9 @@ public class User {
     private String login;
     private String password;
     private Status status;
-    private Integer medCard_id;
     private String img;
 
-    public User(Integer id, String name, String login, String password, String status, Integer medCard, String img) throws NoneOfDoctorException {
+    public User(Integer id, String name, String login, String password, String status, String img) throws NoneOfDoctorException {
         if (!status.toLowerCase().equals("doctor")) {
             this.id = id;
             this.name = name;
@@ -25,14 +24,13 @@ public class User {
             } else if (str.equals("EMPLOYEE")) {
                 this.status = Status.EMPLOYEE;
             }
-            this.medCard_id = medCard;
             this.img = img;
         } else {
             throw new NoneOfDoctorException();
         }
     }
 
-    public User(String name, String login, String password, String status, Integer medCard, String img) throws NoneOfDoctorException {
+    public User(String name, String login, String password, String status, String img) throws NoneOfDoctorException {
         if (!status.toLowerCase().equals("doctor")) {
             this.name = name;
             this.login = login;
@@ -45,7 +43,6 @@ public class User {
             } else if (str.equals("EMPLOYEE")) {
                 this.status = Status.EMPLOYEE;
             }
-            this.medCard_id = medCard;
             this.img = img;
         } else {
             throw new NoneOfDoctorException();
@@ -62,10 +59,6 @@ public class User {
 
     public Status getStatus() {
         return status;
-    }
-
-    public Integer getMedCard_id() {
-        return medCard_id;
     }
 
     public String getLogin() {
@@ -96,12 +89,20 @@ public class User {
         this.status = status;
     }
 
-    public void setMedCard_id(Integer medCard_id) {
-        this.medCard_id = medCard_id;
-    }
-
     public void setImg(String img) {
         this.img = img;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", status=" + status +
+                ", img='" + img + '\'' +
+                '}';
     }
 }
 

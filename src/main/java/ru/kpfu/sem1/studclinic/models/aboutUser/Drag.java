@@ -50,4 +50,16 @@ public class Drag {
     public List<Integer> getIllnesses_id() {
         return illnesses_id;
     }
+
+    @Override
+    public String toString() {
+        return "Drag{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", mode_of_application='" + mode_of_application + '\'' +
+                ", other='" + other + '\'' +
+                ", path_of_img='" + path_of_img + '\'' +
+                ", illnesses_id=" + illnesses_id +
+                '}';
+    }
 }

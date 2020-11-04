@@ -21,7 +21,7 @@
 
             <ul class="navbar-nav mr-auto">
                 <li class="navbar-brand">
-                    <a class="nav-link" href="forum_page.html" style="color: #116062">Форум</a>
+                    <a class="nav-link" href="done/forum_page.html" style="color: #116062">Форум</a>
                 </li>
 
                 <li class="navbar-brand">
@@ -29,7 +29,7 @@
                 </li>
 
                 <li class="navbar-brand">
-                    <a class="nav-link" href="medicine_page.html" style="color: #116062">Лекарства</a>
+                    <a class="nav-link" href="done/medicine_page.html" style="color: #116062">Лекарства</a>
                 </li>
 
                 <li class="navbar-brand">
@@ -45,21 +45,21 @@
     </menu>
 </header>
 
-<form>
+<form action="/login" method="post">
     <div class="form-group">
         <label for="exampleInputEmail1" style="font-size: 30px">Логин</label>
-        <input type="text" class="form-control" id="exampleInputEmail1">
+        <input type="text" class="form-control" id="exampleInputEmail1" name="login">
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1" style="font-size: 30px">Пароль</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
     </div>
     <div class="form-group form-check" style="margin-left: 10px">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember_me">
         <label class="form-check-label" for="exampleCheck1">Запомнить меня</label>
     </div>
-    <a href="account_page.html" class="btn btn-primary">Войти</a>
-    <a href="registration_page.html" class="btn btn-primary">Регистрация</a>
+    <input class="btn btn-primary" type="submit">Войти</input>
+    <a href="/registration" class="btn btn-primary">Регистрация</a>
 </form>
 
 
