@@ -5,19 +5,19 @@ import ru.kpfu.sem1.studclinic.models.atricals.Article;
 
 public class AnswerInForum {
     private Integer id;
-    private Article article;
+    private Forum forum;
     private User user;
     private String text;
 
-    public AnswerInForum(Integer id, Article article, User user, String text) {
+    public AnswerInForum(Integer id, Forum article, User user, String text) {
         this.id = id;
-        this.article = article;
+        this.forum = article;
         this.user = user;
         this.text = text;
     }
 
-    public AnswerInForum(Article article, User user, String text) {
-        this.article = article;
+    public AnswerInForum(Forum article, User user, String text) {
+        this.forum = article;
         this.user = user;
         this.text = text;
     }
@@ -26,8 +26,8 @@ public class AnswerInForum {
         return id;
     }
 
-    public Article getArticle() {
-        return article;
+    public Forum getForum() {
+        return forum;
     }
 
     public User getUser() {
@@ -36,5 +36,15 @@ public class AnswerInForum {
 
     public String getText() {
         return text;
+    }
+
+    @Override
+    public String toString() {
+        return "AnswerInForum{" +
+                "id=" + id +
+                ", forum=" + forum +
+                ", user=" + user +
+                ", text='" + text + '\'' +
+                '}';
     }
 }

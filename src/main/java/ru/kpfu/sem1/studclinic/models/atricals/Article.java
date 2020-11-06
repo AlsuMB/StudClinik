@@ -34,4 +34,14 @@ public class Article {
     public String getImg() {
         return img;
     }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", title='" + title + '\'' +
+                ", img='" + img + '\'' +
+                '}';
+    }
 }

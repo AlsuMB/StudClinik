@@ -21,7 +21,14 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("webapp/registration_page.html");
+        resp.setContentType("text/html;charset=UTF-8");
+        resp.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");
+        try {
+            req.getRequestDispatcher("webapp/registration_page.ftl").forward(req, resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

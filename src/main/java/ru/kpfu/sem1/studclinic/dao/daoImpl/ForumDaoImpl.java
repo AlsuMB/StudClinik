@@ -16,13 +16,15 @@ public class ForumDaoImpl implements Dao<Forum> {
     public Forum get(int id) {
         try {
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM Forums WHERE id = " + id;
+            String sql = "SELECT * FROM Forums WHERE id = \'" + id + "\';";
             ResultSet resultSet = statement.executeQuery(sql);
-            return new Forum(
-                    resultSet.getInt("id"),
-                    resultSet.getString("title"),
-                    resultSet.getString("text"),
-                    resultSet.getString("path_of_img"));
+            while (resultSet.next()) {
+                return new Forum(
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("text"),
+                        resultSet.getString("path_of_img"));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

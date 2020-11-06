@@ -11,19 +11,10 @@
                 <table>
                     <#if forums??>
                         <#list forums as forum>
-                        <#--                <tr>-->
-                        <#--                    <th>${forum.text}</th>-->
-                        <#--                    <th>${forum.title}</th>-->
-                        <#--                    <#if forum.img??>-->
-                        <#--                        <th>${forum.img}</th>-->
-                        <#--                    <#else>-->
-                        <#--                        <th>Сорри, картинку не загрузили</th>-->
-                        <#--                    </#if>-->
-                        <#--                </tr>-->
                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <div class="card">
-                                    <a href="forum_page_example.html">
-                                        <img src="img/mick-haupt-aBYBPVlBl38-unsplash.jpg" class="card-img-top"
+                                    <a href="/forum_page?id=${forum.id}">
+                                        <img src="../webapp/img/mick-haupt-aBYBPVlBl38-unsplash.jpg" class="card-img-top"
                                              alt="...">
                                         <div class="card-body">
                                             <h3>${forum.title}</h3>

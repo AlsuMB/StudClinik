@@ -16,7 +16,7 @@
     String user = null;
     String sessionUser = (String) session.getAttribute("username");
     if (sessionUser == null) {
-        response.sendRedirect("webapp/login.html");
+        response.sendRedirect("webapp/login.ftl");
     } else {
         user = sessionUser;
     }

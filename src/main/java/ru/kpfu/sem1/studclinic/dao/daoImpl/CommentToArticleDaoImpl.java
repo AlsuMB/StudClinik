@@ -4,6 +4,7 @@ import ru.kpfu.sem1.studclinic.dao.Dao;
 import ru.kpfu.sem1.studclinic.helpers.PostgresConnectionHelper;
 import ru.kpfu.sem1.studclinic.models.aboutUser.Status;
 import ru.kpfu.sem1.studclinic.models.atricals.CommentToArticle;
+import ru.kpfu.sem1.studclinic.models.forum.AnswerInForum;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -90,5 +91,28 @@ public class CommentToArticleDaoImpl implements Dao<CommentToArticle> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<CommentToArticle> getAllCommentsInArticle(int articleId) {
+        try {
+            ArticleDaoImpl articleDao = new ArticleDaoImpl();
+            UserDaoImpl userDao = new UserDaoImpl();
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM comments_to_articles WHERE article_id = \'" + articleId + "\';";
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            List<CommentToArticle> answers = new ArrayList<>();
+            while (resultSet.next()) {
+                CommentToArticle answer = new CommentToArticle(resultSet.getInt("id"),
+                        articleDao.get(resultSet.getInt("article_id")),
+                        userDao.get(resultSet.getInt("user_id")),
+                        resultSet.getString("text"));
+                answers.add(answer);
+            }
+            return answers;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

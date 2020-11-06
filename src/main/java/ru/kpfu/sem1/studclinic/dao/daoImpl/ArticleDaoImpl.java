@@ -15,13 +15,15 @@ public class ArticleDaoImpl implements Dao<Article> {
     public Article get(int id) {
         try {
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM Articles WHERE id = " + id;
+            String sql = "SELECT * FROM Articles WHERE id = \'" + id + "\';";
             ResultSet resultSet = statement.executeQuery(sql);
-            return new Article(
-                    resultSet.getInt("id"),
-                    resultSet.getString("title"),
-                    resultSet.getString("text"),
-                    resultSet.getString("path_of_img"));
+            while (resultSet.next()) {
+                return new Article(
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("text"),
+                        resultSet.getString("path_of_img"));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

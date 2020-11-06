@@ -72,7 +72,6 @@ public class UserDaoImpl implements Dao<User> {
             preparedStatement.setString(4, user.getStatus().name());
             preparedStatement.setString(5, user.getImg());
             preparedStatement.executeUpdate();
-            System.out.println("Successful!!!!!!");
         } catch (SQLException e) {
             e.printStackTrace();
         }
