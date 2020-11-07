@@ -2,7 +2,8 @@
 <#include "base.ftl">
 <#macro title>Forum</#macro>
 <#macro css>
-    <link rel="stylesheet" href="../webapp/css/medicine_page.css"></#macro>
+    <link rel="stylesheet" href="css/medicine_page.css">
+</#macro>
 <#macro content>
     <div class="blog">
         <div class="container">
@@ -12,7 +13,7 @@
                     <div class="card">
                         <a href="/add_new_forum">
                             <img src="img/roman-kraft-_Zua2hyvTBk-unsplash.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
+                            <div class="card-body" href="/add_new_forum">
                                 <h3>Добавить новый вопрос</h3>
                                 <img src="img/add.png" style="height: 70px; width: 70px">
                             </div>
@@ -25,7 +26,7 @@
                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <div class="card">
                                     <a href="/forum_page?id=${forum.id}">
-                                        <img src="../webapp/img/mick-haupt-aBYBPVlBl38-unsplash.jpg" class="card-img-top"
+                                        <img src="file:///C:/Users/Alsu/Desktop/path_for_site/${forum.img}" class="card-img-top"
                                              alt="...">
                                         <div class="card-body">
                                             <h3>${forum.title}</h3>

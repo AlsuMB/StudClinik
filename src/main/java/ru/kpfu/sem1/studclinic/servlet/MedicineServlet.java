@@ -14,7 +14,6 @@ import java.util.List;
 
 @WebServlet(name = "MedicineServlet", urlPatterns = "/medicines")
 public class MedicineServlet extends HttpServlet {
-    private static final String FILE_PATH_PREFIX = "C:\\Users\\Alsu\\Desktop\\path_for_site";
     private final DragDaoImpl dragDao = new DragDaoImpl();
 
     @Override

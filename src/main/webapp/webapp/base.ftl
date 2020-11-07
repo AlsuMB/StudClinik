@@ -14,7 +14,7 @@
 <header class="header">
     <menu class="menu">
         <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #ffffff; position: fixed; z-index: 1">
-            <a class="navbar-brand" href="undone/page.html" style="color: #116062; padding-right: 15px">
+            <a class="navbar-brand" href="done/page.html" style="color: #116062; padding-right: 15px">
                 <img src="img/cure.png" height="65" width="65">
                 Health.com
             </a>

@@ -4,7 +4,7 @@
 <#macro css>
     <link rel="stylesheet" href="css/style.css"></#macro>
 <#macro content>
-    <form  enctype='multipart/form-data' action="/add_new_article" method="post">
+    <form  enctype='multipart/form-data' action="/add_new_forum" method="post">
         <div class="form-group">
             <label for="exampleFormControlInput1" style="font-size: 30px">Тема вопроса</label>
             <textarea name="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Кратко опишите проблему"></textarea>

@@ -2,7 +2,7 @@
 <#include "base.ftl">
 <#macro title>Добавить новую статью</#macro>
 <#macro css>
-    <link rel="stylesheet" href="../webapp/css/title_form_style.css"></#macro>
+    <link rel="stylesheet" href="css/title_form_style.css"></#macro>
 <#macro content>
     <form  enctype='multipart/form-data' action="/add_new_article" method="post">
         <div class="form-group">

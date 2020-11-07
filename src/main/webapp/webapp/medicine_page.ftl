@@ -13,7 +13,7 @@
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="card">
                                 <a href="/medicine?id=${drag.id}">
-                                    <img src="localhost:8080\images\${drag.path_of_img}" class="card-img-top" alt="...">
+                                    <img src="file:///C:/Users/Alsu/Desktop/path_for_site/${drag.path_of_img}" class="card-img-top" alt="...">
                                     <div class="card-body">
 
                                         <h3>${drag.name}</h3>

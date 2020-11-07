@@ -20,6 +20,7 @@ public class ArticleServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         List<Article> articles = articleDao.getAll();
+        System.out.println(articles);
         req.setAttribute("articles", articles);
         req.getRequestDispatcher("webapp/articles.ftl").forward(req, resp);
     }

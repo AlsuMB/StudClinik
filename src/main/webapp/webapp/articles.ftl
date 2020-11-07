@@ -24,7 +24,7 @@
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="card">
                                 <a href="/article?id=${article.id}">
-                                    <img src="img/wim-van-t-einde-uj7eb7CgqRk-unsplash.jpg" class="card-img-top"
+                                    <img src="file:///C:/Users/Alsu/Desktop/path_for_site/not_found_img.png" class="card-img-top"
                                          alt="...">
                                     <div class="card-body">
                                         <h3>${article.title}</h3>

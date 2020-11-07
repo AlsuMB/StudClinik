@@ -2,13 +2,13 @@
 <#include "base.ftl">
 <#macro title>Личный кабинет</#macro>
 <#macro css>
-    <link rel="stylesheet" href="../webapp/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </#macro>
 <#macro content>
     <#if user??>
         <div class="card" style="margin-top: 120px; margin-bottom: 100px">
             <div class="card-body">
-                <img src="path_for_site/${user.img}" type="file"
+                <img src="file:///C:/Users/Alsu/Desktop/path_for_site/${user.img}"
                      style="margin-top: 20px; margin-bottom: 20px; height: 150px; margin-left: 10px" alt="Avatar">
                 <p>
                     <span style="font-size: 20px; font-weight: bold">Имя: </span>
