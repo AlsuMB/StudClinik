@@ -28,11 +28,9 @@ public class AccountServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         String login = (String) session.getAttribute("username");
-        System.out.println(login);
         if (login != null) {
             UserDaoImpl udi = new UserDaoImpl();
             User user = udi.getByLogin(login);
-            System.out.println(user);
             req.setAttribute("user", user);
             req.getRequestDispatcher("webapp/account_page.ftl").forward(req, resp);
         } else {

@@ -14,9 +14,8 @@
                     <span style="font-size: 20px; font-weight: bold">Имя: </span>
                     ${user.name}
                 </p>
-<#--                <p><span style="font-size: 20px; font-weight: bold">Фамилия: </span>${user.lastname}</p>-->
                 <p><span style="font-size: 20px; font-weight: bold">Логин: </span>${user.login}</p>
-                <a href="undone/update_account_page.html" class="btn btn-primary">Изменить</a>
+                <a href="/update_account" class="btn btn-primary">Изменить</a>
             </div>
         </div>
     </#if>

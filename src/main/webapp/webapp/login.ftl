@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../webapp/css/login_style.css">
 </#macro>
 <#macro content>
+
     <form action="/login" method="post">
         <div class="form-group">
             <label for="exampleInputEmail1" style="font-size: 30px">Логин</label>

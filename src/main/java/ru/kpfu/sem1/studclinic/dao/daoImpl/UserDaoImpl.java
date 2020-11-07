@@ -98,13 +98,15 @@ public class UserDaoImpl implements Dao<User> {
         return null;
     }
 
-    public void updateNameOrImg(User user) {
-        String sql = "UPDATE Users SET name = ?, path_of_img = ? WHERE id = ?";
+    public void update(User user) {
+        String sql = "UPDATE Users SET name = ?, path_of_img = ?, password = ?, login = ? WHERE id = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getImg());
-            preparedStatement.setInt(3, user.getId());
+            preparedStatement.setString(3, user.getPassword());
+            preparedStatement.setString(4, user.getLogin());
+            preparedStatement.setInt(5, new UserDaoImpl().getByLogin(user.getLogin()).getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

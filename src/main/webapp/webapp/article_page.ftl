@@ -17,56 +17,31 @@
             <div class="card-body">
                 <h2 style="margin-left: 260px">${article.title}</h2>
                 <p>${article.text}</p>
-                <img src="../img/wim-van-t-einde-uj7eb7CgqRk-unsplash.jpg"
+                <img src="img/wim-van-t-einde-uj7eb7CgqRk-unsplash.jpg"
                      style="margin-top: 20px; margin-bottom: 20px; height: 500px; margin-left: 230px">
             </div>
         </div>
+        <div class="card">
+            <div class="card-body">
+                <span>Вариант комментария</span>
+                <#if comments??>
+                    <#list comments as comment>
+
+                        <div class="card-body" style="margin-left: 100px">
+                            <span>${comment.text}</span>
+                            <p><a style="color: #116062; padding-top: 10px">${comment.user.name}</a></p>
+
+                        </div>
+                    </#list>
+                </#if>
+            </div>
+        </div>
     </#if>
-    <div class="card">
-        <div class="card-body">
-            <span>Вариант комментария</span>
-            <#if answers??>
-                <#list answers as answer>
 
-                    <div class="card-body" style="margin-left: 100px">
-                        <span>Вариант ответа на комментарий</span>
-                        <p><a href="#" style="color: #116062; padding-top: 10px">Аккаунт узера</a></p>
-                        <button class="btn btn-primary"
-                                style="padding: 5px 10px 5px 10px; color: #116062; background-color: #ffffff"><img
-                                    src="../img/thumb-up.png" style="height: 20px; width: 20px"> 5
-                        </button>
-                        <button class="btn btn-primary"
-                                style="padding: 5px 10px 5px 10px; color: #116062; background-color: #ffffff"><img
-                                    src="../img/thumb-down.png" style="height: 20px; width: 20px"> 0
-                        </button>
-                        <p style="margin-top: 10px">
-                            <button class="btn btn-primary">Ответить</button>
-                        </p>
-                    </div>
-                </#list>
-            </#if>
-        </div>
-    </div>
 
-    <div class="card">
-        <div class="card-body">
-            <span>Вариант комментария</span>
-            <p><a href="#" style="color: #116062; padding-top: 10px">Аккаунт узера</a></p>
-            <button class="btn btn-primary"
-                    style="padding: 5px 10px 5px 10px; color: #116062; background-color: #ffffff"><img
-                        src="../img/thumb-up.png" style="height: 20px; width: 20px"> 5
-            </button>
-            <button class="btn btn-primary"
-                    style="padding: 5px 10px 5px 10px; color: #116062; background-color: #ffffff"><img
-                        src="../img/thumb-down.png" style="height: 20px; width: 20px"> 0
-            </button>
-            <p style="margin-top: 10px">
-                <button class="btn btn-primary">Ответить</button>
-            </p>
-        </div>
-    </div>
+
     <div id="ajaxbutton">
-        <form action="/article?id=<#if article??>${article.id}</#if>">
+        <form method="post" action="/article?id=<#if article??>${article.id}</#if>">
             <div class="form-group">
                 <label for="exampleFormControlTextarea1" style="font-size: 30px">Ваш комментарий: </label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="text"></textarea>

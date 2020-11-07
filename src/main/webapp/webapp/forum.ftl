@@ -8,6 +8,17 @@
         <div class="container">
             <h1 class="text-center">Темы</h1>
             <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <a href="/add_new_forum">
+                            <img src="img/roman-kraft-_Zua2hyvTBk-unsplash.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3>Добавить новый вопрос</h3>
+                                <img src="img/add.png" style="height: 70px; width: 70px">
+                            </div>
+                        </a>
+                    </div>
+                </div>
                 <table>
                     <#if forums??>
                         <#list forums as forum>

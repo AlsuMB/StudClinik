@@ -39,4 +39,3 @@
             crossorigin="anonymous"></script>
 
 </#macro>
-</html>

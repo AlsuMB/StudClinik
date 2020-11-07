@@ -32,6 +32,7 @@ public class CertainArticleServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         req.setAttribute("article", article);
         ArrayList<CommentToArticle> comments = (ArrayList<CommentToArticle>) commentToArticleDao.getAllCommentsInArticle(articleID);
+        System.out.println(comments);
         req.setAttribute("comments", comments);
         req.getRequestDispatcher("webapp/article_page.ftl").forward(req, resp);
     }
@@ -47,10 +48,11 @@ public class CertainArticleServlet extends HttpServlet {
             String login = (String) session.getAttribute("username");
             User user = new UserDaoImpl().getByLogin(login);
             CommentToArticle answer = new CommentToArticle(articleDao.get(Integer.parseInt(req.getParameter("id"))), user, text);
+            System.out.println(answer);
             commentToArticleDao.save(answer);
-            resp.sendRedirect("/forum_page?id=" + req.getParameter("id"));
+            resp.sendRedirect("/article?id=" + req.getParameter("id"));
         } else {
-            resp.sendRedirect("/forum_page?id=" + req.getParameter("id"));
+            resp.sendRedirect("/article?id=" + req.getParameter("id"));
         }
     }
 }

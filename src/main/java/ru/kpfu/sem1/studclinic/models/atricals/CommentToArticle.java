@@ -36,4 +36,14 @@ public class CommentToArticle {
     public String getText() {
         return text;
     }
+
+    @Override
+    public String toString() {
+        return "CommentToArticle{" +
+                "id=" + id +
+                ", article=" + article +
+                ", user=" + user +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }

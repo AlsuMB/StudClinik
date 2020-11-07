@@ -73,20 +73,14 @@ public class CommentToArticleDaoImpl implements Dao<CommentToArticle> {
 
     @Override
     public void save(CommentToArticle commentToArticle) {
-        String sql = "INSERT INTO Comments_to_articles(article_id, user_id, doctor_id, text) VALUES (?, ?, ?, ?);";
+        String sql = "INSERT INTO Comments_to_articles(article_id, user_id, text) VALUES (?, ?, ?);";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            if (commentToArticle.getUser().getStatus() == Status.DOCTOR) {
-                preparedStatement.setInt(1, commentToArticle.getArticle().getId());
-                preparedStatement.setNull(2, commentToArticle.getUser().getId());
-                preparedStatement.setInt(3, commentToArticle.getUser().getId());
-                preparedStatement.setString(4, commentToArticle.getText());
-            } else if (commentToArticle.getUser().getStatus() != Status.DOCTOR) {
-                preparedStatement.setInt(1, commentToArticle.getArticle().getId());
-                preparedStatement.setInt(2, commentToArticle.getUser().getId());
-                preparedStatement.setNull(3, commentToArticle.getUser().getId());
-                preparedStatement.setString(4, commentToArticle.getText());
-            }
+
+            preparedStatement.setInt(1, commentToArticle.getArticle().getId());
+            preparedStatement.setInt(2, commentToArticle.getUser().getId());
+            preparedStatement.setString(3, commentToArticle.getText());
+
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

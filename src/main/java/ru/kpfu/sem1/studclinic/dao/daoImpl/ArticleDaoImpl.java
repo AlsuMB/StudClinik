@@ -64,4 +64,29 @@ public class ArticleDaoImpl implements Dao<Article> {
             e.printStackTrace();
         }
     }
+
+    private final String SQL_FIND_ALL_ARTICLES_LIKE= "";
+    public List<Article> getAllUsersLikeString(String like) {
+        try {
+            like += '%';
+            Statement statement = connection.createStatement();
+            String sql = "select * from articles where title like ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,like);
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.getResultSet();
+            List<Article> articles = new ArrayList<>();
+            while (resultSet.next()) {
+                articles.add(new Article(
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("text"),
+                        resultSet.getString("path_of_img")));
+            }
+            return articles;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
 }

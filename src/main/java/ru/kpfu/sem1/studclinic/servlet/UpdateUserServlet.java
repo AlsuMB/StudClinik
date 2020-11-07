@@ -1,7 +1,10 @@
 package ru.kpfu.sem1.studclinic.servlet;
 
+import ru.kpfu.sem1.studclinic.dao.daoImpl.ForumDaoImpl;
 import ru.kpfu.sem1.studclinic.dao.daoImpl.UserDaoImpl;
+import ru.kpfu.sem1.studclinic.helpers.PasswordHelper;
 import ru.kpfu.sem1.studclinic.models.aboutUser.User;
+import ru.kpfu.sem1.studclinic.models.forum.AnswerInForum;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -11,11 +14,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
+import java.util.Enumeration;
 
-@WebServlet(name = "registrationServlet", urlPatterns = "/registration")
+@WebServlet(name = "UpdateUserServlet", urlPatterns = "/update_account")
 @MultipartConfig(maxFileSize = 5 * 1024 * 1024,
         maxRequestSize = 10 * 1024 * 1024)
-public class RegistrationServlet extends HttpServlet {
+public class UpdateUserServlet extends HttpServlet {
     private final UserDaoImpl userDao = new UserDaoImpl();
     private static final String FILE_PATH_PREFIX = "C:\\Users\\Alsu\\Desktop\\path_for_site";
 
@@ -25,7 +29,7 @@ public class RegistrationServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
         try {
-            req.getRequestDispatcher("webapp/registration_page.ftl").forward(req, resp);
+            req.getRequestDispatcher("webapp/update_account.ftl").forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
         }
@@ -39,11 +43,9 @@ public class RegistrationServlet extends HttpServlet {
         String lastname = req.getParameter("lastname");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        String status = "patient";
-        String rememberMe = req.getParameter("remember_me");
         Part filePart = req.getPart("img");
         String fileName;
-        if (filePart == null) {
+        if (filePart != null) {
             fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
             InputStream fileContent = filePart.getInputStream();
             FileOutputStream outputStream = new FileOutputStream(FILE_PATH_PREFIX + fileName);
@@ -53,20 +55,32 @@ public class RegistrationServlet extends HttpServlet {
         } else {
             fileName = "not_found_img.png";
         }
+
         try {
-            User newUser = new User(name + " " + lastname, login, password, status, fileName);
-            userDao.save(newUser);
-            if (rememberMe.equals("on")) {
-                HttpSession httpSession = req.getSession();
-                httpSession.setAttribute("username", login);
-                httpSession.setMaxInactiveInterval(60 * 60);
-                Cookie userCookie = new Cookie("username", login);
-                userCookie.setMaxAge(24 * 60 * 60);
-                resp.addCookie(userCookie);
+            HttpSession session = req.getSession();
+            if (session != null) {
+                String login_from_session = (String) session.getAttribute("username");
+                User user = new UserDaoImpl().getByLogin(login_from_session);
+                if (login.equals(login_from_session)) {
+                    User newUser = new User(user.getId(), (name + " " + lastname).trim(), login, PasswordHelper.encrypt(password), "patient", fileName);
+                    userDao.update(newUser);
+                    HttpSession httpSession = req.getSession();
+                    httpSession.setAttribute("username", login);
+                    httpSession.setMaxInactiveInterval(60 * 60);
+                    Cookie userCookie = new Cookie("username", login);
+                    userCookie.setMaxAge(24 * 60 * 60);
+                    resp.addCookie(userCookie);
+                    resp.sendRedirect("/account");
+                } else {
+                    resp.sendRedirect("/login");
+                }
+            } else {
+                resp.sendRedirect("/login");
             }
-            resp.sendRedirect("/account");
+
         } catch (Exception e) {
-            resp.sendRedirect("/registration");
+            e.printStackTrace();
+            resp.sendRedirect("/login");
         }
     }
 }
